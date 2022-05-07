@@ -11,4 +11,41 @@ Important: After you pass all the project tests, save a dump of your database in
 ### Step 2: Submit your code
 > When you have completed the project, save all the required files into a public repository and submit the URL to it below.
 
-Required files: `universe.sql`
+Related files: `universe.sql`
+
+# Codebook:
+
+**Galaxy Table**
+
+ | Column | Data Type | Description |
+ | --- | --- | --- |
+ | galaxy_id | SERIAL | Autoincrementing Primary Key |
+ | name | VARCHAR(50) | Galaxy name |
+
+**Star Table**
+
+ | Column | Data Type | Description |
+ | --- | --- | --- |
+ | star_id | SERIAL | Autoincrementing Primary Key |
+ | name | VARCHAR(50) | Star name |
+
+**Planet Table**
+
+ | Column | Data Type | Description | 
+ | --- | --- | --- |
+ | planet_id | SERIAL | Autoincrementing Primary Key |
+ | name | VARCHAR(50) | Planet name |
+
+**Moon Table**
+
+ | Column | Data Type | Description |
+ | --- | --- | --- |
+ | moon_id | SERIAL | Autoincrementing Primary Key |
+ | name | VARCHAR(50) | Moon name |
+
+**Telescope Table**
+
+ | Column | Data Type | Description |
+ | --- | --- | --- |
+ | telescope_id | SERIAL | Autoincrementing Primary Key |
+ | name | VARCHAR(50) | Telescope name |
