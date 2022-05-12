@@ -78,6 +78,40 @@ ALTER SEQUENCE public.galaxy_galaxy_id_seq OWNED BY public.galaxy.galaxy_id;
 
 
 --
+-- Name: galaxy_group; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.galaxy_group (
+    galaxy_group_id integer NOT NULL,
+    name character varying(50)
+);
+
+
+ALTER TABLE public.galaxy_group OWNER TO freecodecamp;
+
+--
+-- Name: galaxy_group_galaxy_group_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.galaxy_group_galaxy_group_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.galaxy_group_galaxy_group_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: galaxy_group_galaxy_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.galaxy_group_galaxy_group_id_seq OWNED BY public.galaxy_group.galaxy_group_id;
+
+
+--
 -- Name: moon; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
@@ -180,44 +214,17 @@ ALTER SEQUENCE public.star_star_id_seq OWNED BY public.star.star_id;
 
 
 --
--- Name: telescope; Type: TABLE; Schema: public; Owner: freecodecamp
---
-
-CREATE TABLE public.telescope (
-    telescope_id integer NOT NULL,
-    name character varying(50)
-);
-
-
-ALTER TABLE public.telescope OWNER TO freecodecamp;
-
---
--- Name: telescope_telescope_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
---
-
-CREATE SEQUENCE public.telescope_telescope_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.telescope_telescope_id_seq OWNER TO freecodecamp;
-
---
--- Name: telescope_telescope_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
---
-
-ALTER SEQUENCE public.telescope_telescope_id_seq OWNED BY public.telescope.telescope_id;
-
-
---
 -- Name: galaxy galaxy_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
 ALTER TABLE ONLY public.galaxy ALTER COLUMN galaxy_id SET DEFAULT nextval('public.galaxy_galaxy_id_seq'::regclass);
+
+
+--
+-- Name: galaxy_group galaxy_group_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.galaxy_group ALTER COLUMN galaxy_group_id SET DEFAULT nextval('public.galaxy_group_galaxy_group_id_seq'::regclass);
 
 
 --
@@ -242,14 +249,13 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 
 
 --
--- Name: telescope telescope_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
---
-
-ALTER TABLE ONLY public.telescope ALTER COLUMN telescope_id SET DEFAULT nextval('public.telescope_telescope_id_seq'::regclass);
-
-
---
 -- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+
+
+--
+-- Data for Name: galaxy_group; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
 
@@ -273,16 +279,17 @@ ALTER TABLE ONLY public.telescope ALTER COLUMN telescope_id SET DEFAULT nextval(
 
 
 --
--- Data for Name: telescope; Type: TABLE DATA; Schema: public; Owner: freecodecamp
---
-
-
-
---
 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
 SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 1, false);
+
+
+--
+-- Name: galaxy_group_galaxy_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.galaxy_group_galaxy_group_id_seq', 1, false);
 
 
 --
@@ -307,10 +314,11 @@ SELECT pg_catalog.setval('public.star_star_id_seq', 1, false);
 
 
 --
--- Name: telescope_telescope_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+-- Name: galaxy_group galaxy_group_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.telescope_telescope_id_seq', 1, false);
+ALTER TABLE ONLY public.galaxy_group
+    ADD CONSTRAINT galaxy_group_pkey PRIMARY KEY (galaxy_group_id);
 
 
 --
@@ -343,14 +351,6 @@ ALTER TABLE ONLY public.planet
 
 ALTER TABLE ONLY public.star
     ADD CONSTRAINT star_pkey PRIMARY KEY (star_id);
-
-
---
--- Name: telescope telescope_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
---
-
-ALTER TABLE ONLY public.telescope
-    ADD CONSTRAINT telescope_pkey PRIMARY KEY (telescope_id);
 
 
 --
