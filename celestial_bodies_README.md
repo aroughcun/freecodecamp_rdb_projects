@@ -15,6 +15,13 @@ Related files: `universe.sql`
 
 # Codebook:
 
+**Galaxy Group Table**
+
+ | Column | Data Type | Description |
+ | --- | --- | --- |
+ | group_id | SERIAL | Autoincrementing Primary Key |
+ | name | VARCHAR(50) | Group name |
+
 **Galaxy Table**
 
  | Column | Data Type | Description |
@@ -42,10 +49,3 @@ Related files: `universe.sql`
  | --- | --- | --- |
  | moon_id | SERIAL | Autoincrementing Primary Key |
  | name | VARCHAR(50) | Moon name |
-
-**Telescope Table**
-
- | Column | Data Type | Description |
- | --- | --- | --- |
- | telescope_id | SERIAL | Autoincrementing Primary Key |
- | name | VARCHAR(50) | Telescope name |
