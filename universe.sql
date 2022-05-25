@@ -49,7 +49,11 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.galaxy (
     galaxy_id integer NOT NULL,
-    name character varying(50)
+    name character varying(50) NOT NULL,
+    type character varying(50),
+    distance_mly numeric,
+    diameter_ly integer,
+    galaxy_group_id integer
 );
 
 
@@ -83,7 +87,9 @@ ALTER SEQUENCE public.galaxy_galaxy_id_seq OWNED BY public.galaxy.galaxy_id;
 
 CREATE TABLE public.galaxy_group (
     galaxy_group_id integer NOT NULL,
-    name character varying(50)
+    name character varying(50) NOT NULL,
+    distance_mly numeric,
+    constellation text
 );
 
 
@@ -252,12 +258,17 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.galaxy VALUES (1, 'M101', 'Intermediate Spiral', 20.9, 170000, 3);
+INSERT INTO public.galaxy VALUES (2, 'Milky Way', 'Barred Spiral', NULL, 185000, 1);
 
 
 --
 -- Data for Name: galaxy_group; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.galaxy_group VALUES (1, 'Local Group', NULL, NULL);
+INSERT INTO public.galaxy_group VALUES (2, 'Leo Triplet', 35.1, 'Leo');
+INSERT INTO public.galaxy_group VALUES (3, 'M101', 23.9, 'Ursa Major');
 
 
 --
@@ -282,14 +293,14 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 1, false);
+SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 2, true);
 
 
 --
 -- Name: galaxy_group_galaxy_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.galaxy_group_galaxy_group_id_seq', 1, false);
+SELECT pg_catalog.setval('public.galaxy_group_galaxy_group_id_seq', 3, true);
 
 
 --
@@ -314,11 +325,27 @@ SELECT pg_catalog.setval('public.star_star_id_seq', 1, false);
 
 
 --
+-- Name: galaxy_group galaxy_group_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.galaxy_group
+    ADD CONSTRAINT galaxy_group_name_key UNIQUE (name);
+
+
+--
 -- Name: galaxy_group galaxy_group_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
 ALTER TABLE ONLY public.galaxy_group
     ADD CONSTRAINT galaxy_group_pkey PRIMARY KEY (galaxy_group_id);
+
+
+--
+-- Name: galaxy galaxy_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.galaxy
+    ADD CONSTRAINT galaxy_name_key UNIQUE (name);
 
 
 --
@@ -351,6 +378,14 @@ ALTER TABLE ONLY public.planet
 
 ALTER TABLE ONLY public.star
     ADD CONSTRAINT star_pkey PRIMARY KEY (star_id);
+
+
+--
+-- Name: galaxy galaxy_galaxy_group_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.galaxy
+    ADD CONSTRAINT galaxy_galaxy_group_id_fkey FOREIGN KEY (galaxy_group_id) REFERENCES public.galaxy_group(galaxy_group_id);
 
 
 --
