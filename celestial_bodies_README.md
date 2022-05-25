@@ -21,6 +21,8 @@ Related files: `universe.sql`
  | --- | --- | --- |
  | group_id | SERIAL | Autoincrementing Primary Key |
  | name | VARCHAR(50) | Group name |
+ | distance_mly | NUMERIC | distance from Earth in million light years (Mly) |
+ | constellation | TEXT | night sky location of galaxy group |
 
 **Galaxy Table**
 
@@ -28,6 +30,10 @@ Related files: `universe.sql`
  | --- | --- | --- |
  | galaxy_id | SERIAL | Autoincrementing Primary Key |
  | name | VARCHAR(50) | Galaxy name |
+ | type | VARCHAR(50) | Primary Hubble - de Vaucouleurs Classification |
+ | distance_mly | NUMERIC | distance from Earth in million light years (Mly) |
+ | diameter_ly |  INT | galaxy diameter in light years (ly) |
+ | galaxy_group_id | INT | Foreign Key - Galaxy Group |
 
 **Star Table**
 
