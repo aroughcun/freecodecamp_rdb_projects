@@ -123,7 +123,7 @@ ALTER SEQUENCE public.galaxy_group_galaxy_group_id_seq OWNED BY public.galaxy_gr
 
 CREATE TABLE public.moon (
     moon_id integer NOT NULL,
-    name character varying(50)
+    name character varying(50) NOT NULL
 );
 
 
@@ -157,7 +157,12 @@ ALTER SEQUENCE public.moon_moon_id_seq OWNED BY public.moon.moon_id;
 
 CREATE TABLE public.planet (
     planet_id integer NOT NULL,
-    name character varying(50)
+    name character varying(50) NOT NULL,
+    mass_earths numeric,
+    discovered integer,
+    habital_zone boolean,
+    has_life boolean,
+    star_id integer
 );
 
 
@@ -191,7 +196,11 @@ ALTER SEQUENCE public.planet_planet_id_seq OWNED BY public.planet.planet_id;
 
 CREATE TABLE public.star (
     star_id integer NOT NULL,
-    name character varying(50)
+    name character varying(50) NOT NULL,
+    spectral_class character varying(1),
+    life_stage character varying(50),
+    distance_ly numeric,
+    galaxy_id integer
 );
 
 
@@ -357,6 +366,14 @@ ALTER TABLE ONLY public.galaxy
 
 
 --
+-- Name: moon moon_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon
+    ADD CONSTRAINT moon_name_key UNIQUE (name);
+
+
+--
 -- Name: moon moon_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
@@ -365,11 +382,27 @@ ALTER TABLE ONLY public.moon
 
 
 --
+-- Name: planet planet_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT planet_name_key UNIQUE (name);
+
+
+--
 -- Name: planet planet_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
 ALTER TABLE ONLY public.planet
     ADD CONSTRAINT planet_pkey PRIMARY KEY (planet_id);
+
+
+--
+-- Name: star star_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star
+    ADD CONSTRAINT star_name_key UNIQUE (name);
 
 
 --
@@ -386,6 +419,22 @@ ALTER TABLE ONLY public.star
 
 ALTER TABLE ONLY public.galaxy
     ADD CONSTRAINT galaxy_galaxy_group_id_fkey FOREIGN KEY (galaxy_group_id) REFERENCES public.galaxy_group(galaxy_group_id);
+
+
+--
+-- Name: planet planet_star_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT planet_star_id_fkey FOREIGN KEY (star_id) REFERENCES public.star(star_id);
+
+
+--
+-- Name: star star_galaxy_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star
+    ADD CONSTRAINT star_galaxy_id_fkey FOREIGN KEY (galaxy_id) REFERENCES public.galaxy(galaxy_id);
 
 
 --
