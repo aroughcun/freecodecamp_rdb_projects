@@ -123,7 +123,11 @@ ALTER SEQUENCE public.galaxy_group_galaxy_group_id_seq OWNED BY public.galaxy_gr
 
 CREATE TABLE public.moon (
     moon_id integer NOT NULL,
-    name character varying(50) NOT NULL
+    name character varying(50) NOT NULL,
+    orbit character varying(11),
+    type character varying(25),
+    radius_mi numeric,
+    planet_id integer
 );
 
 
@@ -419,6 +423,14 @@ ALTER TABLE ONLY public.star
 
 ALTER TABLE ONLY public.galaxy
     ADD CONSTRAINT galaxy_galaxy_group_id_fkey FOREIGN KEY (galaxy_group_id) REFERENCES public.galaxy_group(galaxy_group_id);
+
+
+--
+-- Name: moon moon_planet_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon
+    ADD CONSTRAINT moon_planet_id_fkey FOREIGN KEY (planet_id) REFERENCES public.planet(planet_id);
 
 
 --
