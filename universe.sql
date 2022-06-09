@@ -294,12 +294,17 @@ INSERT INTO public.galaxy_group VALUES (3, 'M101', 23.9, 'Ursa Major');
 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.planet VALUES (1, 'Mercury', 0.0553, 1631, false, false, 1);
+INSERT INTO public.planet VALUES (2, 'Venus', 0.815, 1610, true, false, 1);
+INSERT INTO public.planet VALUES (3, 'Earth', 1.0, NULL, true, true, 1);
+INSERT INTO public.planet VALUES (4, 'Mars', 0.107, 1610, true, false, 1);
 
 
 --
 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.star VALUES (1, 'Sun', 'G', 'Main Sequence', 0, 2);
 
 
 --
