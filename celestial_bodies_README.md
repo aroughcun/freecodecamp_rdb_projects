@@ -66,5 +66,5 @@ Related files: `universe.sql`
  | name | VARCHAR(50) | Moon name |
  | orbit | VARCHAR(11) | Type of orbit (prograde or retrograde) | 
  | mass_earths | NUMERIC | Moon mass relative to Earth |
- | radius_mi | NUMERIC | Moon radius in miles (mi) |
+ | eq_radius_mi | NUMERIC | Moon equatorial radius in miles (mi) |
  | planet_id | INT | Foreign Key - Planet |
