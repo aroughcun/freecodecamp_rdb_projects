@@ -41,6 +41,10 @@ Related files: `universe.sql`
  | --- | --- | --- |
  | star_id | SERIAL | Autoincrementing Primary Key |
  | name | VARCHAR(50) | Star name |
+ | spectral_class | VARCHAR(1) | Spectral classification |
+ | life_stage | VARCHAR(50) | Life stage of star |
+ | distance_ly | NUMERIC | Distance from Sun in light years (ly) |
+ | galaxy_id | INT | Foreign Key - Galaxy |
 
 **Planet Table**
 
@@ -48,6 +52,11 @@ Related files: `universe.sql`
  | --- | --- | --- |
  | planet_id | SERIAL | Autoincrementing Primary Key |
  | name | VARCHAR(50) | Planet name |
+ | mass_earths | NUMERIC | Planet mass relative to Earth |
+ | discovered | INT | Year first observed with telescope |
+ | habital_zone | BOOLEAN | Exists in the habital zone of resident star |
+ | has_life | BOOLEAN | Life present on planet |
+ | star_id | INT | Foreign Key - Star |
 
 **Moon Table**
 
@@ -55,3 +64,7 @@ Related files: `universe.sql`
  | --- | --- | --- |
  | moon_id | SERIAL | Autoincrementing Primary Key |
  | name | VARCHAR(50) | Moon name |
+ | orbit | VARCHAR(11) | Type of orbit (prograde or retrograde) | 
+ | mass_earths | NUMERIC | Moon mass relative to Earth |
+ | radius_mi | NUMERIC | Moon radius in miles (mi) |
+ | planet_id | INT | Foreign Key - Planet |
