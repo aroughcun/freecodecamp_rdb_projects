@@ -65,6 +65,6 @@ Related files: `universe.sql`
  | moon_id | SERIAL | Autoincrementing Primary Key |
  | name | VARCHAR(50) | Moon name |
  | orbit | VARCHAR(11) | Type of orbit (prograde or retrograde) | 
- | mass_earths | NUMERIC | Moon mass relative to Earth |
- | eq_radius_mi | NUMERIC | Moon equatorial radius in miles (mi) |
+ | discovered | INT | Year first observed with telescope |
+ | distance_mi | NUMERIC | Distance from planet in miles (mi) |
  | planet_id | INT | Foreign Key - Planet |
