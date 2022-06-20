@@ -125,8 +125,8 @@ CREATE TABLE public.moon (
     moon_id integer NOT NULL,
     name character varying(50) NOT NULL,
     orbit character varying(11),
-    mass_earths numeric,
-    radius_mi numeric,
+    discovered integer,
+    orbital_speed_kms numeric,
     planet_id integer
 );
 
@@ -288,6 +288,17 @@ INSERT INTO public.galaxy_group VALUES (3, 'M101', 23.9, 'Ursa Major');
 -- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.moon VALUES (1, 'Moon', 'Prograde', NULL, 1.022, 3);
+INSERT INTO public.moon VALUES (2, 'Phobos', 'Prograde', 1877, 2.138, 4);
+INSERT INTO public.moon VALUES (3, 'Deimos', 'Prograde', 1877, 1.351, 4);
+INSERT INTO public.moon VALUES (4, 'Metis', 'Prograde', 1979, 31.501, 5);
+INSERT INTO public.moon VALUES (5, 'Adastrea', 'Prograde', 1979, 31.378, 5);
+INSERT INTO public.moon VALUES (6, 'Amalthea', 'Prograde', 1892, 26.570, 5);
+INSERT INTO public.moon VALUES (7, 'Thebes', 'Prograde', 1979, 23.920, 5);
+INSERT INTO public.moon VALUES (8, 'Io', 'Prograde', 1610, 17.334, 5);
+INSERT INTO public.moon VALUES (9, 'Europa', 'Prograde', 1610, 13.743, 5);
+INSERT INTO public.moon VALUES (10, 'Ganymede', 'Prograde', 1610, 10.880, 5);
+INSERT INTO public.moon VALUES (11, 'Callisto', 'Prograde', 1610, 8.204, 5);
 
 
 --
@@ -298,6 +309,10 @@ INSERT INTO public.planet VALUES (1, 'Mercury', 0.0553, 1631, false, false, 1);
 INSERT INTO public.planet VALUES (2, 'Venus', 0.815, 1610, true, false, 1);
 INSERT INTO public.planet VALUES (3, 'Earth', 1.0, NULL, true, true, 1);
 INSERT INTO public.planet VALUES (4, 'Mars', 0.107, 1610, true, false, 1);
+INSERT INTO public.planet VALUES (5, 'Jupiter', 317.8, 1610, false, false, 1);
+INSERT INTO public.planet VALUES (6, 'Saturn', 95.159, 1610, false, false, 1);
+INSERT INTO public.planet VALUES (7, 'Uranus', 14.536, 1781, false, false, 1);
+INSERT INTO public.planet VALUES (8, 'Neptune', 17.147, 1846, false, false, 1);
 
 
 --
