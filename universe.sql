@@ -125,7 +125,7 @@ CREATE TABLE public.moon (
     moon_id integer NOT NULL,
     name character varying(50) NOT NULL,
     orbit character varying(11),
-    type character varying(25),
+    mass_earths numeric,
     radius_mi numeric,
     planet_id integer
 );
