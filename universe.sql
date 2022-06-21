@@ -124,7 +124,6 @@ ALTER SEQUENCE public.galaxy_group_galaxy_group_id_seq OWNED BY public.galaxy_gr
 CREATE TABLE public.moon (
     moon_id integer NOT NULL,
     name character varying(50) NOT NULL,
-    orbit character varying(11),
     discovered integer,
     orbital_speed_kms numeric,
     planet_id integer
@@ -288,17 +287,29 @@ INSERT INTO public.galaxy_group VALUES (3, 'M101', 23.9, 'Ursa Major');
 -- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.moon VALUES (1, 'Moon', 'Prograde', NULL, 1.022, 3);
-INSERT INTO public.moon VALUES (2, 'Phobos', 'Prograde', 1877, 2.138, 4);
-INSERT INTO public.moon VALUES (3, 'Deimos', 'Prograde', 1877, 1.351, 4);
-INSERT INTO public.moon VALUES (4, 'Metis', 'Prograde', 1979, 31.501, 5);
-INSERT INTO public.moon VALUES (5, 'Adastrea', 'Prograde', 1979, 31.378, 5);
-INSERT INTO public.moon VALUES (6, 'Amalthea', 'Prograde', 1892, 26.570, 5);
-INSERT INTO public.moon VALUES (7, 'Thebes', 'Prograde', 1979, 23.920, 5);
-INSERT INTO public.moon VALUES (8, 'Io', 'Prograde', 1610, 17.334, 5);
-INSERT INTO public.moon VALUES (9, 'Europa', 'Prograde', 1610, 13.743, 5);
-INSERT INTO public.moon VALUES (10, 'Ganymede', 'Prograde', 1610, 10.880, 5);
-INSERT INTO public.moon VALUES (11, 'Callisto', 'Prograde', 1610, 8.204, 5);
+INSERT INTO public.moon VALUES (1, 'Moon', NULL, 1.022, 3);
+INSERT INTO public.moon VALUES (2, 'Phobos', 1877, 2.138, 4);
+INSERT INTO public.moon VALUES (3, 'Deimos', 1877, 1.351, 4);
+INSERT INTO public.moon VALUES (4, 'Metis', 1979, 31.501, 5);
+INSERT INTO public.moon VALUES (5, 'Adastrea', 1979, 31.378, 5);
+INSERT INTO public.moon VALUES (6, 'Amalthea', 1892, 26.570, 5);
+INSERT INTO public.moon VALUES (7, 'Thebes', 1979, 23.920, 5);
+INSERT INTO public.moon VALUES (8, 'Io', 1610, 17.334, 5);
+INSERT INTO public.moon VALUES (9, 'Europa', 1610, 13.743, 5);
+INSERT INTO public.moon VALUES (10, 'Ganymede', 1610, 10.880, 5);
+INSERT INTO public.moon VALUES (11, 'Callisto', 1610, 8.204, 5);
+INSERT INTO public.moon VALUES (12, 'Mimas', 1789, 14.230, 6);
+INSERT INTO public.moon VALUES (13, 'Tethys', 1684, 11.350, 6);
+INSERT INTO public.moon VALUES (14, 'Rhea', 1672, 8.480, 6);
+INSERT INTO public.moon VALUES (15, 'Titan', 1655, 5.570, 6);
+INSERT INTO public.moon VALUES (16, 'Iapetus', 1671, 3.260, 6);
+INSERT INTO public.moon VALUES (17, 'Miranda', 1948, 6.660, 7);
+INSERT INTO public.moon VALUES (18, 'Ariel', 1851, 5.510, 7);
+INSERT INTO public.moon VALUES (19, 'Umbriel', 1851, 4.670, 7);
+INSERT INTO public.moon VALUES (20, 'Titania', 1787, 3.640, 7);
+INSERT INTO public.moon VALUES (21, 'Oberon', 1787, 3.150, 7);
+INSERT INTO public.moon VALUES (22, 'Proteus', 1989, 7.623, 8);
+INSERT INTO public.moon VALUES (23, 'Triton', 1846, 4.390, 8);
 
 
 --
@@ -340,7 +351,7 @@ SELECT pg_catalog.setval('public.galaxy_group_galaxy_group_id_seq', 3, true);
 -- Name: moon_moon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.moon_moon_id_seq', 1, false);
+SELECT pg_catalog.setval('public.moon_moon_id_seq', 1, true);
 
 
 --
@@ -472,4 +483,3 @@ ALTER TABLE ONLY public.star
 --
 -- PostgreSQL database dump complete
 --
-
