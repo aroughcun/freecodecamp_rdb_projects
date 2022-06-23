@@ -324,6 +324,7 @@ INSERT INTO public.planet VALUES (5, 'Jupiter', 317.8, 1610, false, false, 1);
 INSERT INTO public.planet VALUES (6, 'Saturn', 95.159, 1610, false, false, 1);
 INSERT INTO public.planet VALUES (7, 'Uranus', 14.536, 1781, false, false, 1);
 INSERT INTO public.planet VALUES (8, 'Neptune', 17.147, 1846, false, false, 1);
+INSERT INTO public.planet VALUES (9, 'Gliese 1132 b', 1.660, 2015, false, false, 2);
 
 
 --
@@ -331,6 +332,7 @@ INSERT INTO public.planet VALUES (8, 'Neptune', 17.147, 1846, false, false, 1);
 --
 
 INSERT INTO public.star VALUES (1, 'Sun', 'G', 'Main Sequence', 0, 2);
+INSERT INTO public.star VALUES (2, 'Gliese 1132', 'M', 'Main Sequence', 41, 2);
 
 
 --
@@ -483,3 +485,4 @@ ALTER TABLE ONLY public.star
 --
 -- PostgreSQL database dump complete
 --
+
