@@ -64,7 +64,6 @@ Related files: `universe.sql`
  | --- | --- | --- |
  | moon_id | SERIAL | Autoincrementing Primary Key |
  | name | VARCHAR(50) | Moon name |
- | orbit | VARCHAR(11) | Type of orbit | 
  | discovered | INT | Year first observed with telescope |
  | orbital speed_kms | NUMERIC | Average orbital speed (km/s) |
  | planet_id | INT | Foreign Key - Planet |
