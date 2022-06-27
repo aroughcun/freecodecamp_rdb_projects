@@ -273,6 +273,9 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 INSERT INTO public.galaxy VALUES (1, 'M101', 'Intermediate Spiral', 20.9, 170000, 3);
 INSERT INTO public.galaxy VALUES (2, 'Milky Way', 'Barred Spiral', NULL, 185000, 1);
 INSERT INTO public.galaxy VALUES (3, 'M66', 'Intermediate Spiral', 31.0, 95000, 2);
+INSERT INTO public.galaxy VALUES (4, 'NGC 3628', 'Unbarred Spiral', 29.9, 100000, 2);
+INSERT INTO public.galaxy VALUES (5, 'M65', 'Intermediate Spiral', 40.1, 113000, 2);
+INSERT INTO public.galaxy VALUES (6, 'UGC 8837', 'Barred Irregular Dwarf', 24.0, 30000, 3);
 
 
 --
