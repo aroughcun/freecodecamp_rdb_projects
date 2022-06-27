@@ -272,6 +272,7 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 
 INSERT INTO public.galaxy VALUES (1, 'M101', 'Intermediate Spiral', 20.9, 170000, 3);
 INSERT INTO public.galaxy VALUES (2, 'Milky Way', 'Barred Spiral', NULL, 185000, 1);
+INSERT INTO public.galaxy VALUES (3, 'M66', 'Intermediate Spiral', 31.0, 95000, 2);
 
 
 --
@@ -316,16 +317,18 @@ INSERT INTO public.moon VALUES (23, 'Triton', 1846, 4.390, 8);
 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.planet VALUES (1, 'Mercury', 0.0553, 1631, false, false, 1);
 INSERT INTO public.planet VALUES (2, 'Venus', 0.815, 1610, true, false, 1);
-INSERT INTO public.planet VALUES (3, 'Earth', 1.0, NULL, true, true, 1);
 INSERT INTO public.planet VALUES (4, 'Mars', 0.107, 1610, true, false, 1);
-INSERT INTO public.planet VALUES (5, 'Jupiter', 317.8, 1610, false, false, 1);
 INSERT INTO public.planet VALUES (6, 'Saturn', 95.159, 1610, false, false, 1);
 INSERT INTO public.planet VALUES (7, 'Uranus', 14.536, 1781, false, false, 1);
 INSERT INTO public.planet VALUES (8, 'Neptune', 17.147, 1846, false, false, 1);
 INSERT INTO public.planet VALUES (9, 'Gliese 1132 b', 1.660, 2015, false, false, 2);
 INSERT INTO public.planet VALUES (10, 'CoRoT-7A b', 4.077, 2009, false, false, 3);
+INSERT INTO public.planet VALUES (11, 'Kepler-186 f', 1.710, 2014, true, false, 5);
+INSERT INTO public.planet VALUES (3, 'Earth', 1.000, NULL, true, true, 1);
+INSERT INTO public.planet VALUES (5, 'Jupiter', 317.800, 1610, false, false, 1);
+INSERT INTO public.planet VALUES (1, 'Mercury', 0.055, 1631, false, false, 1);
+INSERT INTO public.planet VALUES (12, 'TRAPPIST-1 e', 0.692, 2017, true, false, 6);
 
 
 --
@@ -336,6 +339,8 @@ INSERT INTO public.star VALUES (1, 'Sun', 'G', 'Main Sequence', 0, 2);
 INSERT INTO public.star VALUES (2, 'Gliese 1132', 'M', 'Main Sequence', 41, 2);
 INSERT INTO public.star VALUES (3, 'CoRoT-7A', 'K', 'Main Sequence', 522, 2);
 INSERT INTO public.star VALUES (4, 'CoRoT-7B', 'M', 'Main Sequence', 522, 2);
+INSERT INTO public.star VALUES (5, 'Kepler-186', 'M', 'Main Sequence', 579, 2);
+INSERT INTO public.star VALUES (6, 'TRAPPIST-1', 'M', 'Main Sequence', 41, 2);
 
 
 --
