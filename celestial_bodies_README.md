@@ -43,7 +43,7 @@ Related files: `universe.sql`
  | name | VARCHAR(50) | Star name |
  | spectral_class | VARCHAR(1) | Spectral classification |
  | life_stage | VARCHAR(50) | Life stage of star |
- | distance_ly | NUMERIC | Distance from Sun in light years (ly) |
+ | distance_ly | NUMERIC | Distance away in light years (ly) |
  | galaxy_id | INT | Foreign Key - Galaxy |
 
 **Planet Table**
