@@ -1,9 +1,3 @@
-Build a World Cup Database
-
-This is one of the required projects to earn your certification. For this project, you will create a Bash script that enters information from World Cup games into PostgreSQL, then query the database for useful statistics.
-
-Complete both steps below to finish the challenge.
-Step 1: Complete the project
-The project runs in a virtual machine, complete the user stories described in there and get all the tests to pass to finish step 1.
-
-Important: After you pass all the project tests, save a dump of your database into a worldcup.sql file, as well as your insert_data.sh and queries.sh files, so you can complete step 2. There will be instructions how to do that within the virtual machine.
+# freeCodeCamp: Relational Database Certificate Project \#2
+## Build a World Cup Database
+This is one of the required projects to earn certification. For this project, a bash script that enters information from the World Cup games into PostgreSQL was built and queried for useful statistics. The database can be found in the `worldcup.sql` file. The bash script for entering information in the database and querying the database can be found in the `insert_data.sh` file and `queries.sh` file, respectively.
