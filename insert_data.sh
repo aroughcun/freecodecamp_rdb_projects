@@ -10,16 +10,24 @@ fi
 # Do not change code above this line. Use the PSQL variable above to query your database.
 
 # Reset tables for each new run of script
-# $($PQSL "TRUNCATE TABLES teams, games;")
+# $($PQSL "TRUNCATE TABLE teams, games;")
 
 # Read file line by line
-cat games.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS 
+cat games_test.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS 
 do
 if [[ $YEAR != 'year' ]] # Check for header line and only loop over non-header lines  
-then 
-# Teams table 
-
-# Add each unique team (24 rows)
+then
+  # check if team exists from winner
+  TEAM=$($PSQL "SELECT name FROM teams WHERE name='$WINNER';")
+  # if not found
+  if [[ -z $TEAM ]]
+  then
+    # add team
+    WINNER_INSERT=$($PSQL "INSERT INTO teams(name) VALUES('$WINNER');")
+    echo Inserted team: $WINNER_INSERT
+  fi
+  
+  # check if team exists from opponent
 
 
 # Games table 
