@@ -17,19 +17,24 @@ cat games_test.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS 
 do
 if [[ $YEAR != 'year' ]] # Check for header line and only loop over non-header lines  
 then
-  # check if team exists from winner
-  TEAM=$($PSQL "SELECT name FROM teams WHERE name='$WINNER';")
-  # if not found
-  if [[ -z $TEAM ]]
+  # check if winner or opponent team exists
+  TEAM_WIN=$($PSQL "SELECT name FROM teams WHERE name='$WINNER';")
+  TEAM_OPP=$($PSQL "SELECT name FROM teams WHERE name='$OPPONENT';")
+  # if winner not found
+  if [[ -z $TEAM_WIN ]]
   then
-    # add team
+    # add winner team
     WINNER_INSERT=$($PSQL "INSERT INTO teams(name) VALUES('$WINNER');")
-    echo Inserted team: $WINNER_INSERT
+    echo Inserted winner team: $WINNER
+  fi
+  # if opponent not found
+  if [[ -z $TEAM_OPP ]]
+  then
+    # add opponent team
+    OPPONENT_INSERT=$($PSQL "INSERT INTO teams(name) VALUES('$OPPONENT');")
+    echo Inserted opponent team: $OPPONENT
   fi
   
-  # check if team exists from opponent
-
-
 # Games table 
 
 # Add year to the year column
